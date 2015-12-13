@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
 
 #Shoppe admin interface
-  mount Shoppe::Engine => "/shoppe"
+  mount Shoppe::Engine => "/admin"
 
 get "product/:permalink", to: "products#show", as: "product"
 post "product/:permalink", to: "products#buy", as: "buy"
 
 get "/home", to: "products#home", as: "home"
 get "/index", to: "products#index", as: "index"
+get "/info", to: "products#info", as: "info"
 
 root to: "products#home"
   # The priority is based upon order of creation: first created -> highest priority.

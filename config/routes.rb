@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 get "product/:permalink", to: "products#show", as: "product"
 post "product/:permalink", to: "products#buy", as: "buy"
 
-root to: "products#index"
+get "/home", to: "products#home", as: "home"
+get "/index", to: "products#index", as: "index"
+
+root to: "products#home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

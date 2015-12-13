@@ -7,11 +7,39 @@
 <p><%= @product.short_description %></p>
 <p>
   <b><%= number_to_currency @product.price %></b>
-  <%= link_to "Add to basket", product_path(@product.permalink), :method => :post %>
 </p>
 
 <hr>
 <%= simple_format @product.description %>
 <hr>
+<h1>Please Fill out this form</h1>
+<form>
+<h3> Upload a photo:</h3>
+<a href="#">What photo?</a>
+<br>
+<br>
+<input type="image">
+<br>
+<br>
+<h5>Please confirm the measurement from the end of the handle to the tip of the blade:</h5>
+<input type="text" placeholder="Blade Length">
+<br>
+<br>
+<h3>Please select a color</h3>
+<input type="color" name="name">
+<h4>Custom text</h4>
+<input type="text" name="Custom Text">
+<h4>Select a Font</h4>
+<select name="cars">
+  <option value="OE">Olde English</option>
+  <option value="TNE">Times New Roman</option>
+  <option value="CS">Comic Sans</option>
+  <option value="A">Arial</option>
+</select>
+<h4>Text Color</h4>
+<input type="color" name="name" value="">
+<hr>
+<%= link_to "Add to basket", product_path(@product.permalink), :method => :post %>
 
-<p><%= link_to "Back to list", root_path %></p>
+</form>
+<p><%= link_to "Back to list", index_path %></p>

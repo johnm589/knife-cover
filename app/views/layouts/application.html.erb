@@ -71,6 +71,16 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<% if current_order %>
+<p style="border:1px solid black;padding:10px;">
+  You have <%= pluralize current_order.total_items, 'item'%> in your basket which cost
+  <%= number_to_currency current_order.total_before_tax %>.
+  <%= link_to "View basket", basket_path %>
+<%= flash[:notice] %>
+</p>
+<h1><%= link_to "Checkout", checkout_path %>
+</h1>
+<% end %>
 
 <%= yield %>
 

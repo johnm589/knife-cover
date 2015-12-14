@@ -1,15 +1,29 @@
 Rails.application.routes.draw do
 
 #Shoppe admin interface
-  mount Shoppe::Engine => "/admin"
+  mount Shoppe::Engine => "/shoppe"
 
+# Show Products
 get "product/:permalink", to: "products#show", as: "product"
+# post to cart
 post "product/:permalink", to: "products#buy", as: "buy"
 
+# Get Home
 get "/home", to: "products#home", as: "home"
+# Index Page
 get "/index", to: "products#index", as: "index"
+# Static Info Page
 get "/info", to: "products#info", as: "info"
+# Show cart
+get "basket", to: "orders#show"
+# clear basket
+delete "basket", to: "orders#destroy"
 
+# Checkout Routes
+match "checkout", to: "orders#checkout", as: "checkout", via: [:get, :patch]
+match "checkout/pay", to: "orders#payment", as: "checkout_payment", via: [:get, :post]
+match "checkout/confirm", to: "orders#confirmation", as: "checkout_confirmation", via: [:get, :post]
+# Home Page
 root to: "products#home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
